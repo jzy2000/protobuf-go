@@ -146,14 +146,78 @@ func (GoFeatures_StripEnumPrefix) EnumDescriptor() ([]byte, []int) {
 	return file_google_protobuf_go_features_proto_rawDescGZIP(), []int{0, 1}
 }
 
+// The name of this enum matches OptimizeMode in descriptor.proto.
+type GoFeatures_OptimizeModeFeature_OptimizeMode int32
+
+const (
+	// OPTIMIZE_MODE_UNSPECIFIED results in falling back to the default
+	// (optimize for code size), but needs to be a separate value to distinguish
+	// between an explicitly set optimize mode or a missing optimize mode.
+	GoFeatures_OptimizeModeFeature_OPTIMIZE_MODE_UNSPECIFIED GoFeatures_OptimizeModeFeature_OptimizeMode = 0
+	GoFeatures_OptimizeModeFeature_SPEED                     GoFeatures_OptimizeModeFeature_OptimizeMode = 1
+	GoFeatures_OptimizeModeFeature_CODE_SIZE                 GoFeatures_OptimizeModeFeature_OptimizeMode = 2
+)
+
+// Enum value maps for GoFeatures_OptimizeModeFeature_OptimizeMode.
+var (
+	GoFeatures_OptimizeModeFeature_OptimizeMode_name = map[int32]string{
+		0: "OPTIMIZE_MODE_UNSPECIFIED",
+		1: "SPEED",
+		2: "CODE_SIZE",
+	}
+	GoFeatures_OptimizeModeFeature_OptimizeMode_value = map[string]int32{
+		"OPTIMIZE_MODE_UNSPECIFIED": 0,
+		"SPEED":                     1,
+		"CODE_SIZE":                 2,
+	}
+)
+
+func (x GoFeatures_OptimizeModeFeature_OptimizeMode) Enum() *GoFeatures_OptimizeModeFeature_OptimizeMode {
+	p := new(GoFeatures_OptimizeModeFeature_OptimizeMode)
+	*p = x
+	return p
+}
+
+func (x GoFeatures_OptimizeModeFeature_OptimizeMode) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (GoFeatures_OptimizeModeFeature_OptimizeMode) Descriptor() protoreflect.EnumDescriptor {
+	return file_google_protobuf_go_features_proto_enumTypes[2].Descriptor()
+}
+
+func (GoFeatures_OptimizeModeFeature_OptimizeMode) Type() protoreflect.EnumType {
+	return &file_google_protobuf_go_features_proto_enumTypes[2]
+}
+
+func (x GoFeatures_OptimizeModeFeature_OptimizeMode) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *GoFeatures_OptimizeModeFeature_OptimizeMode) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = GoFeatures_OptimizeModeFeature_OptimizeMode(num)
+	return nil
+}
+
+// Deprecated: Use GoFeatures_OptimizeModeFeature_OptimizeMode.Descriptor instead.
+func (GoFeatures_OptimizeModeFeature_OptimizeMode) EnumDescriptor() ([]byte, []int) {
+	return file_google_protobuf_go_features_proto_rawDescGZIP(), []int{0, 0, 0}
+}
+
 type GoFeatures struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Whether or not to generate the deprecated UnmarshalJSON method for enums.
 	// Can only be true for proto using the Open Struct api.
 	LegacyUnmarshalJsonEnum *bool `protobuf:"varint,1,opt,name=legacy_unmarshal_json_enum,json=legacyUnmarshalJsonEnum" json:"legacy_unmarshal_json_enum,omitempty"`
 	// One of OPEN, HYBRID or OPAQUE.
-	ApiLevel        *GoFeatures_APILevel        `protobuf:"varint,2,opt,name=api_level,json=apiLevel,enum=pb.GoFeatures_APILevel" json:"api_level,omitempty"`
-	StripEnumPrefix *GoFeatures_StripEnumPrefix `protobuf:"varint,3,opt,name=strip_enum_prefix,json=stripEnumPrefix,enum=pb.GoFeatures_StripEnumPrefix" json:"strip_enum_prefix,omitempty"`
+	ApiLevel        *GoFeatures_APILevel                         `protobuf:"varint,2,opt,name=api_level,json=apiLevel,enum=pb.GoFeatures_APILevel" json:"api_level,omitempty"`
+	StripEnumPrefix *GoFeatures_StripEnumPrefix                  `protobuf:"varint,3,opt,name=strip_enum_prefix,json=stripEnumPrefix,enum=pb.GoFeatures_StripEnumPrefix" json:"strip_enum_prefix,omitempty"`
+	OptimizeMode    *GoFeatures_OptimizeModeFeature_OptimizeMode `protobuf:"varint,4,opt,name=optimize_mode,json=optimizeMode,enum=pb.GoFeatures_OptimizeModeFeature_OptimizeMode" json:"optimize_mode,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -209,6 +273,51 @@ func (x *GoFeatures) GetStripEnumPrefix() GoFeatures_StripEnumPrefix {
 	return GoFeatures_STRIP_ENUM_PREFIX_UNSPECIFIED
 }
 
+func (x *GoFeatures) GetOptimizeMode() GoFeatures_OptimizeModeFeature_OptimizeMode {
+	if x != nil && x.OptimizeMode != nil {
+		return *x.OptimizeMode
+	}
+	return GoFeatures_OptimizeModeFeature_OPTIMIZE_MODE_UNSPECIFIED
+}
+
+// Wrap the OptimizeMode enum in a message for scoping:
+// This way, users can type shorter names (SPEED, CODE_SIZE).
+type GoFeatures_OptimizeModeFeature struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GoFeatures_OptimizeModeFeature) Reset() {
+	*x = GoFeatures_OptimizeModeFeature{}
+	mi := &file_google_protobuf_go_features_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GoFeatures_OptimizeModeFeature) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GoFeatures_OptimizeModeFeature) ProtoMessage() {}
+
+func (x *GoFeatures_OptimizeModeFeature) ProtoReflect() protoreflect.Message {
+	mi := &file_google_protobuf_go_features_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GoFeatures_OptimizeModeFeature.ProtoReflect.Descriptor instead.
+func (*GoFeatures_OptimizeModeFeature) Descriptor() ([]byte, []int) {
+	return file_google_protobuf_go_features_proto_rawDescGZIP(), []int{0, 0}
+}
+
 var file_google_protobuf_go_features_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.FeatureSet)(nil),
@@ -230,14 +339,20 @@ var File_google_protobuf_go_features_proto protoreflect.FileDescriptor
 
 const file_google_protobuf_go_features_proto_rawDesc = "" +
 	"\n" +
-	"!google/protobuf/go_features.proto\x12\x02pb\x1a google/protobuf/descriptor.proto\"\xab\x05\n" +
+	"!google/protobuf/go_features.proto\x12\x02pb\x1a google/protobuf/descriptor.proto\"\x94\a\n" +
 	"\n" +
 	"GoFeatures\x12\xbe\x01\n" +
 	"\x1alegacy_unmarshal_json_enum\x18\x01 \x01(\bB\x80\x01\x88\x01\x01\x98\x01\x06\x98\x01\x01\xa2\x01\t\x12\x04true\x18\x84\a\xa2\x01\n" +
 	"\x12\x05false\x18\xe7\a\xb2\x01[\b\xe8\a\x10\xe8\a\x1aSThe legacy UnmarshalJSON API is deprecated and will be removed in a future edition.R\x17legacyUnmarshalJsonEnum\x12t\n" +
 	"\tapi_level\x18\x02 \x01(\x0e2\x17.pb.GoFeatures.APILevelB>\x88\x01\x01\x98\x01\x03\x98\x01\x01\xa2\x01\x1a\x12\x15API_LEVEL_UNSPECIFIED\x18\x84\a\xa2\x01\x0f\x12\n" +
 	"API_OPAQUE\x18\xe9\a\xb2\x01\x03\b\xe8\aR\bapiLevel\x12|\n" +
-	"\x11strip_enum_prefix\x18\x03 \x01(\x0e2\x1e.pb.GoFeatures.StripEnumPrefixB0\x88\x01\x01\x98\x01\x06\x98\x01\a\x98\x01\x01\xa2\x01\x1b\x12\x16STRIP_ENUM_PREFIX_KEEP\x18\x84\a\xb2\x01\x03\b\xe9\aR\x0fstripEnumPrefix\"S\n" +
+	"\x11strip_enum_prefix\x18\x03 \x01(\x0e2\x1e.pb.GoFeatures.StripEnumPrefixB0\x88\x01\x01\x98\x01\x06\x98\x01\a\x98\x01\x01\xa2\x01\x1b\x12\x16STRIP_ENUM_PREFIX_KEEP\x18\x84\a\xb2\x01\x03\b\xe9\aR\x0fstripEnumPrefix\x12\x86\x01\n" +
+	"\roptimize_mode\x18\x04 \x01(\x0e2/.pb.GoFeatures.OptimizeModeFeature.OptimizeModeB0\x88\x01\x01\x98\x01\x03\x98\x01\x01\xa2\x01\x1e\x12\x19OPTIMIZE_MODE_UNSPECIFIED\x18\x84\a\xb2\x01\x03\b\xe9\aR\foptimizeMode\x1a^\n" +
+	"\x13OptimizeModeFeature\"G\n" +
+	"\fOptimizeMode\x12\x1d\n" +
+	"\x19OPTIMIZE_MODE_UNSPECIFIED\x10\x00\x12\t\n" +
+	"\x05SPEED\x10\x01\x12\r\n" +
+	"\tCODE_SIZE\x10\x02\"S\n" +
 	"\bAPILevel\x12\x19\n" +
 	"\x15API_LEVEL_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bAPI_OPEN\x10\x01\x12\x0e\n" +
@@ -264,24 +379,27 @@ func file_google_protobuf_go_features_proto_rawDescGZIP() []byte {
 	return file_google_protobuf_go_features_proto_rawDescData
 }
 
-var file_google_protobuf_go_features_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_google_protobuf_go_features_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_google_protobuf_go_features_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_google_protobuf_go_features_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_google_protobuf_go_features_proto_goTypes = []any{
-	(GoFeatures_APILevel)(0),        // 0: pb.GoFeatures.APILevel
-	(GoFeatures_StripEnumPrefix)(0), // 1: pb.GoFeatures.StripEnumPrefix
-	(*GoFeatures)(nil),              // 2: pb.GoFeatures
-	(*descriptorpb.FeatureSet)(nil), // 3: google.protobuf.FeatureSet
+	(GoFeatures_APILevel)(0),                         // 0: pb.GoFeatures.APILevel
+	(GoFeatures_StripEnumPrefix)(0),                  // 1: pb.GoFeatures.StripEnumPrefix
+	(GoFeatures_OptimizeModeFeature_OptimizeMode)(0), // 2: pb.GoFeatures.OptimizeModeFeature.OptimizeMode
+	(*GoFeatures)(nil),                               // 3: pb.GoFeatures
+	(*GoFeatures_OptimizeModeFeature)(nil),           // 4: pb.GoFeatures.OptimizeModeFeature
+	(*descriptorpb.FeatureSet)(nil),                  // 5: google.protobuf.FeatureSet
 }
 var file_google_protobuf_go_features_proto_depIdxs = []int32{
 	0, // 0: pb.GoFeatures.api_level:type_name -> pb.GoFeatures.APILevel
 	1, // 1: pb.GoFeatures.strip_enum_prefix:type_name -> pb.GoFeatures.StripEnumPrefix
-	3, // 2: pb.go:extendee -> google.protobuf.FeatureSet
-	2, // 3: pb.go:type_name -> pb.GoFeatures
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	3, // [3:4] is the sub-list for extension type_name
-	2, // [2:3] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	2, // 2: pb.GoFeatures.optimize_mode:type_name -> pb.GoFeatures.OptimizeModeFeature.OptimizeMode
+	5, // 3: pb.go:extendee -> google.protobuf.FeatureSet
+	3, // 4: pb.go:type_name -> pb.GoFeatures
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	4, // [4:5] is the sub-list for extension type_name
+	3, // [3:4] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_google_protobuf_go_features_proto_init() }
@@ -294,8 +412,8 @@ func file_google_protobuf_go_features_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_google_protobuf_go_features_proto_rawDesc), len(file_google_protobuf_go_features_proto_rawDesc)),
-			NumEnums:      2,
-			NumMessages:   1,
+			NumEnums:      3,
+			NumMessages:   2,
 			NumExtensions: 1,
 			NumServices:   0,
 		},

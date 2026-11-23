@@ -23,10 +23,12 @@ const (
 	GoFeatures_LegacyUnmarshalJsonEnum_field_name protoreflect.Name = "legacy_unmarshal_json_enum"
 	GoFeatures_ApiLevel_field_name                protoreflect.Name = "api_level"
 	GoFeatures_StripEnumPrefix_field_name         protoreflect.Name = "strip_enum_prefix"
+	GoFeatures_OptimizeMode_field_name            protoreflect.Name = "optimize_mode"
 
 	GoFeatures_LegacyUnmarshalJsonEnum_field_fullname protoreflect.FullName = "pb.GoFeatures.legacy_unmarshal_json_enum"
 	GoFeatures_ApiLevel_field_fullname                protoreflect.FullName = "pb.GoFeatures.api_level"
 	GoFeatures_StripEnumPrefix_field_fullname         protoreflect.FullName = "pb.GoFeatures.strip_enum_prefix"
+	GoFeatures_OptimizeMode_field_fullname            protoreflect.FullName = "pb.GoFeatures.optimize_mode"
 )
 
 // Field numbers for pb.GoFeatures.
@@ -34,6 +36,7 @@ const (
 	GoFeatures_LegacyUnmarshalJsonEnum_field_number protoreflect.FieldNumber = 1
 	GoFeatures_ApiLevel_field_number                protoreflect.FieldNumber = 2
 	GoFeatures_StripEnumPrefix_field_number         protoreflect.FieldNumber = 3
+	GoFeatures_OptimizeMode_field_number            protoreflect.FieldNumber = 4
 )
 
 // Full and short names for pb.GoFeatures.APILevel.
@@ -62,6 +65,25 @@ const (
 	GoFeatures_STRIP_ENUM_PREFIX_KEEP_enum_value          = 1
 	GoFeatures_STRIP_ENUM_PREFIX_GENERATE_BOTH_enum_value = 2
 	GoFeatures_STRIP_ENUM_PREFIX_STRIP_enum_value         = 3
+)
+
+// Names for pb.GoFeatures.OptimizeModeFeature.
+const (
+	GoFeatures_OptimizeModeFeature_message_name     protoreflect.Name     = "OptimizeModeFeature"
+	GoFeatures_OptimizeModeFeature_message_fullname protoreflect.FullName = "pb.GoFeatures.OptimizeModeFeature"
+)
+
+// Full and short names for pb.GoFeatures.OptimizeModeFeature.OptimizeMode.
+const (
+	GoFeatures_OptimizeModeFeature_OptimizeMode_enum_fullname = "pb.GoFeatures.OptimizeModeFeature.OptimizeMode"
+	GoFeatures_OptimizeModeFeature_OptimizeMode_enum_name     = "OptimizeMode"
+)
+
+// Enum values for pb.GoFeatures.OptimizeModeFeature.OptimizeMode.
+const (
+	GoFeatures_OptimizeModeFeature_OPTIMIZE_MODE_UNSPECIFIED_enum_value = 0
+	GoFeatures_OptimizeModeFeature_SPEED_enum_value                     = 1
+	GoFeatures_OptimizeModeFeature_CODE_SIZE_enum_value                 = 2
 )
 
 // Extension numbers
